@@ -19,7 +19,7 @@ const mysqlConfig = {
       }else{
           console.log("We have connection");
       }
-    connection.end();
+    // connection.end();
   });
 
  function check() {
@@ -27,6 +27,7 @@ const mysqlConfig = {
     connection.query(query, function(err,res) {
         for(var i = 0; i < res.length; i++) {
           var cantidad = res[i].stock_quantity;
+          console.log(cantidad);
           console.log("Product ID: " + res[i].id + "|| Name: " + res[i].product_name + 
           "|| Price: " + res[i].price);
         }inquirer
@@ -52,20 +53,25 @@ const mysqlConfig = {
           console.log("Product in stock: " + cosaCantidad);
           var stockLeft = cosaCantidad - answer.order;
           console.log(stockLeft);
-          
+          connection.query(             
+            "UPDATE products SET ? WHERE ?",
+            [
+              {
+                stock_quantity: stockLeft
+              },
+              {
+                id: cosa.id
+              }
+            ]
+          );
         });
         });
     });
-   
+   connection.end();
  };
 
- function test() {
-    var examen = "SELECT id,stock_quantity FROM products";
-    connection.query(examen, function(err,res) {
-      console.log("Product id: " + res[2].id + "Stock: " + res[2].stock_quantity);
-    });
- };
 
+ 
 
 // test();
 check();
