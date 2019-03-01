@@ -63,9 +63,11 @@ function start() {
                 function(err) {
                     if(err) throw err;
                     console.log("Stock has been updated");
+                    connection.end();
                 }
               );
               })            
             })          
         });
+
 }
