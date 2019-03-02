@@ -1,3 +1,4 @@
+//customer view
 const mysql = require("mysql");
 const inquirer = require("inquirer");
 const mysqlConfig = {
@@ -35,7 +36,7 @@ function start() {
                 console.log(cosa);
                 var cosaNombre = cosa.product_name;
                 var cosaCantidad = cosa.stock_quantity;
-                console.log("You want " + cosaNombre + " with " + cosaCantidad + " in stock.");``
+                console.log("You want " + cosaNombre + " with " + cosaCantidad + " in stock.");
               
               inquirer
               .prompt(
@@ -46,8 +47,8 @@ function start() {
                 }
               )
               .then(function(answer) {
-                var stockLeft = cosaCantidad - answer.order;
-                var totalPaid = cosa.price * answer.order;
+                var stockLeft = parseInt(cosaCantidad) - parseInt(answer.order);
+                var totalPaid = parseInt(cosa.price) * parseInt(answer.order);
                 console.log("You bought: " + answer.order + " " + cosaNombre);
                 console.log("Your total is: $" + totalPaid)
                 console.log("There is now " + stockLeft + " left.");
