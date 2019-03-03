@@ -34,3 +34,12 @@ INSERT INTO procucts (product_name, department_name, price, stock_quantity)
 VALUES("Book Shelf", "Furniture", 239.00, 71);
 INSERT INTO procucts (product_name, department_name, price, stock_quantity)
 VALUES("Coffee Maker", "Electronics", 189.98, 3);
+
+CREATE TABLE departments {
+    department_id INT (100) NULL,
+    department_name VARCHAR (50) NULL,
+    over_head_cost INT (1000) NULL,
+    PRIMARY KEY (department_id)
+};
+
+INSERT INTO products( product_sales);

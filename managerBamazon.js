@@ -10,14 +10,6 @@ const mysqlConfig = {
 };
 const connection = mysql.createConnection(mysqlConfig);
 
-// connection.connect(function(err) {
-//     if(err) throw err;
-//     console.log("\nWelcome to Bamazon.");
-//     managerCheck();
-
-// });
-
-
 inquirer
 .prompt(
     {
@@ -34,6 +26,15 @@ inquirer
         console.log("no");
     }
 });
+
+function moveForward() {
+    connection.connect(function(err) {
+        if(err) throw err;
+        console.log("\nWelcome to Bamazon.");
+        managerCheck();
+    
+    });
+}
 
 
 function managerCheck() {
@@ -189,13 +190,6 @@ function nuevoProduct() {
 }
 
 
-function moveForward() {
-    connection.connect(function(err) {
-        if(err) throw err;
-        console.log("\nWelcome to Bamazon.");
-        managerCheck();
-    
-    });
-}
 
-//moveForward();
+
+

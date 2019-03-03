@@ -33,7 +33,7 @@ function start() {
             })
             .then(function(answer) {
                 var cosa = res[answer.sale - 1];
-                console.log(cosa);
+                //console.log(cosa);
                 var cosaNombre = cosa.product_name;
                 var cosaCantidad = cosa.stock_quantity;
                 console.log("You want " + cosaNombre + " with " + cosaCantidad + " in stock.");
